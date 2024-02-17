@@ -64,13 +64,6 @@ export const FormProvider = ({children}) => {
         setMessage("");
       },3000);
     }
-    else if(!isChecked){
-      e.preventDefault();
-      setMessage(<p className='text-red-500 mb-4'>Agree to terms & conditions</p>);
-      setTimeout(()=> {
-        setMessage("");
-      },3000);
-    }
   };
 
   const handleFields = () => {

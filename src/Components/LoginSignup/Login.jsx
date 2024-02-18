@@ -6,7 +6,7 @@ import { useFormContext } from './Context';
 
 const LogIn = () => {
 
-  const {text, setText, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, message, RevokeLogin} = useFormContext();
+  const {text, setText, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, loginmessage, RevokeLogin} = useFormContext();
 
   return (
     <div className='bg-image bg-blue-200 flex justify-center items-center h-screen'>
@@ -16,7 +16,7 @@ const LogIn = () => {
         <h1 className='text-2xl font-bold'>LogIn</h1>  
         </div>
         <form className='w-full pt-8' onSubmit={handleSubmit}>
-              <span className='text-sm'>{message}</span>
+              <span className='text-sm'>{loginmessage}</span>
             <div className='relative flex flex-col justify-center items-start gap-3'>
             <input type="text" name='text' placeholder='Username' value={text} onChange={(e) => setText(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-4 border focus:outline-none focus:outline-white' required/><FaRegUser className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600'/>
             <input type={ispasswordVisible? "text": "password"} name="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-4 border focus:outline-none focus:outline-white' required/>{ispasswordVisible? (<FaEyeSlash className='absolute top-1/2 transform-translate-y-1/2 right-3 text-gray-600' onClick={Toggle}/>):(<FaEye className='absolute top-1/2 transform-translate-y-1/2 right-3 text-gray-600' onClick={Toggle}/>)}

@@ -9,27 +9,28 @@ export const FormProvider = ({children}) => {
   const [ispasswordVisible, setIsPasswordVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [Data, setData] = useState([]);
-  const [message, setMessage] = useState("");
+  const [loginmessage, setLoginMessage] = useState("");
+  const [signupmessage, setSignupMessage] = useState("");
 
 
   const RevokeLogin = () => {
     const userFound = Data.find(user => user.name == text && user.password === password );
     if(userFound){
-        setMessage(<p className='text-blue-500 mb-4'>LogIn Successful</p>);
+        setLoginMessage(<p className='text-blue-500 mb-4'>LogIn Successful</p>);
         console.log("Logged in:",{name: text, password: password, email: email});
         setTimeout(()=> {
-          setMessage("");
+          setLoginMessage("");
         },3000);
     }else if(text === "" || password === ""){
-      setMessage(<p className='text-red-500 mb-4'>Empty Inputs</p>);
+      setLoginMessage(<p className='text-red-500 mb-4'>Empty Inputs</p>);
       setTimeout(()=> {
-        setMessage("");
+        setLoginMessage("");
       },3000);
     }
     else{
-      setMessage(<p className='text-red-500 mb-4'>Details not matched</p>);
+      setLoginMessage(<p className='text-red-500 mb-4'>Details not matched</p>);
       setTimeout(()=> {
-        setMessage("");
+        setLoginMessage("");
       },3000);
     }
   };
@@ -40,28 +41,28 @@ export const FormProvider = ({children}) => {
       if (password.length >= 8) {
         if (!isChecked) {
           e.preventDefault();
-          setMessage(<p className='text-red-500 mb-4'>Agree to terms & conditions</p>);
+          setSignupMessage(<p className='text-red-500 mb-4'>Agree to terms & conditions</p>);
           setTimeout(() => {
-            setMessage("");
+            setSignupMessage("");
           }, 3000);
         }else{
-          setMessage(<p className='text-blue-500 mb-4'>Account Created. Login Now</p>);
+          setSignupMessage(<p className='text-blue-500 mb-4'>Account Created. Login Now</p>);
           setTimeout(() => {
-            setMessage("");
+            setSignupMessage("");
           }, 3000);
         };
       } else {
         e.preventDefault();
-        setMessage(<p className='text-red-500 mb-4'>Password must be at least 8 characters long</p>);
+        setSignupMessage(<p className='text-red-500 mb-4'>Password must be at least 8 characters long</p>);
         setTimeout(() => {
-          setMessage("");
+          setSignupMessage("");
         }, 3000);
       }
     }
     else if(text == "" || email == "" || password == ""){
-      setMessage(<p className='text-red-500 mb-4'>Empty Input</p>);
+      setSignupMessage(<p className='text-red-500 mb-4'>Empty Input</p>);
       setTimeout(()=> {
-        setMessage("");
+        setSignupMessage("");
       },3000);
     }
   };
@@ -96,7 +97,7 @@ export const FormProvider = ({children}) => {
     setIsChecked(false);
   };
 
-  const ContextValue = {text, setText, email, setEmail, password, setPassword, ispasswordVisible, setIsPasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, handleSignUp, message, RevokeLogin, NewAccount};
+  const ContextValue = {text, setText, email, setEmail, password, setPassword, ispasswordVisible, setIsPasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, handleSignUp, loginmessage, signupmessage, RevokeLogin, NewAccount};
 
   return(
     <FormContext.Provider value={ContextValue}>

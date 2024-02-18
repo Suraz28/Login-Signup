@@ -7,7 +7,7 @@ import { useFormContext } from './Context';
 
 const SignUp = () => {
 
-  const {text, setText, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, message} = useFormContext();
+  const {text, setText, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, signupmessage} = useFormContext();
   return (
     <div className='bg-image bg-blue-200 flex justify-center items-center h-screen'>
     <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(50px)"}}>
@@ -16,7 +16,7 @@ const SignUp = () => {
         <h1 className='text-2xl font-bold'>SignUp</h1>  
         </div>
         <form className='w-full pt-8' onSubmit={handleSignUp}>
-            <span className='text-sm'>{message}</span>
+            <span className='text-sm'>{signupmessage}</span>
             <div className='relative flex flex-col justify-center items-start gap-3'>
                 <div className='relative w-full'>
             <input type="text" name='text' placeholder='Username' value={text} onChange={(e) => setText(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-8 border focus:outline-none focus:outline-white' required/><FaRegUser className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600'/>

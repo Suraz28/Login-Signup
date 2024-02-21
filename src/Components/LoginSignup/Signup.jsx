@@ -25,10 +25,10 @@ const SignUp = () => {
             <input type="email" name='email' placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-8 border focus:outline-none focus:outline-white' required autoComplete='email'/><MdOutlineMail className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600'/>
                 </div>
                 <div className='relative w-full'>
-            <input type={ispasswordVisible? "text": "password"} name="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-8 border focus:outline-none focus:outline-white' required/>{ispasswordVisible? (<FaEyeSlash className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600 cursor-pointer' onClick={Toggle}/>):(<FaEye className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600 cursor-pointer' onClick={Toggle}/>)}
+            <input type={ispasswordVisible? "text": "password"} name="password" placeholder='Password' value={password} autoComplete='off' onChange={(e) => setPassword(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-8 border focus:outline-none focus:outline-white' required/>{ispasswordVisible? (<FaEyeSlash className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600 cursor-pointer' onClick={Toggle}/>):(<FaEye className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600 cursor-pointer' onClick={Toggle}/>)}
                 </div>
             <div className='flex gap-2'>
-            <input type='checkbox' id='terms' className='cursor-pointer' checked={isChecked} onChange={(e)=> setIsChecked(e.target.checked)}/><label htmlFor='terms' className='text-sm underline text-blue-500 cursor-pointer'>I agree with terms & conditions</label>
+            <input type='checkbox' id='terms' className='cursor-pointer' checked={isChecked} onChange={(e)=> setIsChecked(e.target.checked)}/><label  className='text-sm underline text-blue-500 cursor-pointer'>I agree with terms & conditions</label>
             </div>
             </div>
             <div className='flex flex-col items-center pt-5'>

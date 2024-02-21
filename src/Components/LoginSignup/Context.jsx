@@ -14,7 +14,7 @@ export const FormProvider = ({children}) => {
 
 
   const RevokeLogin = () => {
-    const userFound = Data.find(user => user.name == text && user.password === password );
+    const userFound = Data.find(user => user.name.toLowerCase() == text.toLowerCase() && user.password === password );
     if(userFound){
         setLoginMessage(<p className='text-blue-500 mb-4'>LogIn Successful</p>);
         console.log("Logged in:",{name: text, password: password, email: email});
@@ -76,7 +76,7 @@ export const FormProvider = ({children}) => {
   const handleSignUp = (e) => {
     e.preventDefault();
     const newData = 
-      {name: text,
+      {name: text.toLowerCase(),
       email: email,
       password: password,
     };
@@ -90,11 +90,10 @@ export const FormProvider = ({children}) => {
     setIsPasswordVisible(!ispasswordVisible);
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleFields();
     setIsChecked(false);
+    handleFields();
   };
 
   const ContextValue = {text, setText, email, setEmail, password, setPassword, ispasswordVisible, setIsPasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, handleSignUp, loginmessage, signupmessage, RevokeLogin, NewAccount};

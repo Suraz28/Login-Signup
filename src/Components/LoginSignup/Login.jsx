@@ -8,6 +8,13 @@ const LogIn = () => {
 
   const {text, setText, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, loginmessage, RevokeLogin} = useFormContext();
 
+  const openGoogleSignIn = () => {
+    window.open("https://accounts.google.com/InteractiveLogin/signinchooser?elo=1&ifkv=ARZ0qKLifRdybor3dLBnn9imPF8C-NuNLgOsejgxwVIeeZN2osYjRWGzFC5571R47jCCDWUUBSj-xg&theme=glif&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin", "_blank");
+  };
+  const openFacebookSignIn = () => {
+    window.open("https://www.facebook.com", "_blank");
+  };
+
   return (
     <div className='bg-image bg-blue-200 flex justify-center items-center h-screen'>
     <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(50px)"}}>
@@ -36,8 +43,8 @@ const LogIn = () => {
             </div>
             </form>
             <div className='flex flex-col items-center gap-1 pt-2 w-full'>
-            <button type='submit' className='bg-gray-800 hover:bg-black text-white rounded-md p-2 w-full flex items-center gap-2 justify-center'><FaGoogle/>Continue with Google</button>
-            <button type='submit' className='bg-gray-800 hover:bg-black text-white rounded-md p-2 w-full flex items-center justify-center gap-2'><FaFacebook className='text-lg'/>Continue with Facebook</button>
+            <button type='submit' className='bg-gray-800 hover:bg-black text-white rounded-md p-2 w-full flex items-center gap-2 justify-center' onClick={openGoogleSignIn}><FaGoogle />Continue with Google</button>
+            <button type='submit' className='bg-gray-800 hover:bg-black text-white rounded-md p-2 w-full flex items-center justify-center gap-2' onClick={openFacebookSignIn}><FaFacebook className='text-lg'/>Continue with Facebook</button>
             </div>
             <Link to="/SignUp" className='pt-4 text-blue-500 hover:underline' onClick={handleFields}>Don't have an account? SignUp</Link>
         </div>

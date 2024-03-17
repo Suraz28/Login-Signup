@@ -17,7 +17,7 @@ const LogIn = () => {
 
   return (
     <div className='bg-image bg-blue-200 flex justify-center items-center h-screen'>
-    <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(50px)"}}>
+    <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(10px)"}}>
         <div className='flex flex-col justify-between items-center'>
         <div className='flex justify-start w-full'>
         <h1 className='text-2xl font-bold'>LogIn</h1>  

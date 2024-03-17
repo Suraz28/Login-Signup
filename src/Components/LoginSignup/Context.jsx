@@ -17,7 +17,7 @@ export const FormProvider = ({children}) => {
     const userFound = Data.find(user => user.name.toLowerCase() == text.toLowerCase() && user.password === password );
     if(userFound){
         setLoginMessage(<p className='text-blue-500 mb-4'>LogIn Successful</p>);
-        console.log("Logged in:",{name: text, password: password, email: email});
+        console.log("Logged in:",{name: text, password: password, email: [userFound.email]});
         setTimeout(()=> {
           setLoginMessage("");
         },3000);

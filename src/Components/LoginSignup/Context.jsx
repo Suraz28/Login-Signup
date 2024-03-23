@@ -3,7 +3,7 @@ import React, {useContext, createContext, useState, useEffect} from "react";
 const FormContext = createContext();
 
 export const FormProvider = ({children}) => {
-    const [text, setText] = useState('');
+    const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [ispasswordVisible, setIsPasswordVisible] = useState(false);
@@ -14,14 +14,14 @@ export const FormProvider = ({children}) => {
 
 
   const RevokeLogin = () => {
-    const userFound = Data.find(user => user.name.toLowerCase() == text.toLowerCase() && user.password === password );
+    const userFound = Data.find(user => user.name.toLowerCase() == name.toLowerCase() && user.password === password );
     if(userFound){
         setLoginMessage(<p className='text-blue-500 mb-4'>LogIn Successful</p>);
-        console.log("Logged in:",{name: text, password: password, email: [userFound.email]});
+        console.log("Logged in:",{name: name, password: password, email: [userFound.email]});
         setTimeout(()=> {
           setLoginMessage("");
         },3000);
-    }else if(text === "" || password === ""){
+    }else if(name === "" || password === ""){
       setLoginMessage(<p className='text-red-500 mb-4'>Empty Inputs</p>);
       setTimeout(()=> {
         setLoginMessage("");
@@ -37,7 +37,7 @@ export const FormProvider = ({children}) => {
 
   const NewAccount = (e) => {
 
-    if(text !== "" && email !== "" && password !== ""){
+    if(name !== "" && email !== "" && password !== ""){
       if (password.length >= 8) {
         if (!isChecked) {
           e.preventDefault();
@@ -59,7 +59,7 @@ export const FormProvider = ({children}) => {
         }, 3000);
       }
     }
-    else if(text == "" || email == "" || password == ""){
+    else if(name == "" || email == "" || password == ""){
       setSignupMessage(<p className='text-red-500 mb-4'>Empty Input</p>);
       setTimeout(()=> {
         setSignupMessage("");
@@ -68,7 +68,7 @@ export const FormProvider = ({children}) => {
   };
 
   const handleFields = () => {
-    setText("");
+    setName("");
     setEmail("");
     setPassword("");
   }
@@ -76,14 +76,14 @@ export const FormProvider = ({children}) => {
   const handleSignUp = (e) => {
     e.preventDefault();
     const newData = 
-      {name: text.toLowerCase(),
+      {name: name.toLowerCase(),
       email: email,
       password: password,
     };
   setData(prevData => [...prevData, newData]);
   handleFields();
   setIsChecked(false);
-  console.log("Account Created:", {name: text, email: email, password: password });
+  console.log("Account Created:", {name: name, email: email, password: password });
 };
 
   const Toggle = () => {
@@ -96,7 +96,7 @@ export const FormProvider = ({children}) => {
     handleFields();
   };
 
-  const ContextValue = {text, setText, email, setEmail, password, setPassword, ispasswordVisible, setIsPasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, handleSignUp, loginmessage, signupmessage, RevokeLogin, NewAccount};
+  const ContextValue = {name, setName, email, setEmail, password, setPassword, ispasswordVisible, setIsPasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, handleSignUp, loginmessage, signupmessage, RevokeLogin, NewAccount};
 
   return(
     <FormContext.Provider value={ContextValue}>

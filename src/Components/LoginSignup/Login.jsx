@@ -6,7 +6,7 @@ import { useFormContext } from './Context';
 
 const LogIn = () => {
 
-  const {text, setText, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, loginmessage, RevokeLogin} = useFormContext();
+  const {name, setName, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, loginmessage, RevokeLogin} = useFormContext();
 
   const openGoogleSignIn = () => {
     window.open("https://accounts.google.com/InteractiveLogin/signinchooser?elo=1&ifkv=ARZ0qKLifRdybor3dLBnn9imPF8C-NuNLgOsejgxwVIeeZN2osYjRWGzFC5571R47jCCDWUUBSj-xg&theme=glif&ddm=0&flowName=GlifWebSignIn&flowEntry=ServiceLogin", "_blank");
@@ -25,7 +25,7 @@ const LogIn = () => {
         <form className='w-full pt-8' onSubmit={handleSubmit}>
               <span className='text-sm'>{loginmessage}</span>
             <div className='relative flex flex-col justify-center items-start gap-3'>
-            <input type="text" name='text' placeholder='Username' value={text} onChange={(e) => setText(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-4 border focus:outline-none focus:outline-white' required/><FaRegUser className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600'/>
+            <input type="text" name='name' placeholder='Username' value={name} onChange={(e) => setName(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-4 border focus:outline-none focus:outline-white' required/><FaRegUser className='absolute top-3 transform-translate-y-1/2 right-3 text-gray-600'/>
             <input type={ispasswordVisible? "text": "password"} name="password" placeholder='Password' value={password} autoComplete='off' onChange={(e) => setPassword(e.target.value)} className='w-full rounded-md bg-gray-50 h-10 pl-4 pr-4 border focus:outline-none focus:outline-white' required/>{ispasswordVisible? (<FaEyeSlash className='absolute top-1/2 transform-translate-y-1/2 right-3 text-gray-600' onClick={Toggle}/>):(<FaEye className='absolute top-1/2 transform-translate-y-1/2 right-3 text-gray-600' onClick={Toggle}/>)}
             <div className='flex gap-2'>
             <input type='checkbox' id='rememberMe' className='cursor-pointer' checked={isChecked}

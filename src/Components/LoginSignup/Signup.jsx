@@ -7,9 +7,9 @@ import { useFormContext } from './Context';
 
 const SignUp = () => {
 
-  const {name, setName, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, signupmessage} = useFormContext();
+  const {name, setName, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, signupmessage} = useFormContext();
   return (
-    <div className='bg-[url("./Images/itl.cat_boombox-wallpaper_996630.png")] bg-cover bg-center flex justify-center items-center h-screen'>
+    <div className='bg-[url("./Images/login-signup.jpg")] bg-cover bg-center flex justify-center items-center h-screen'>
     <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(50px)"}}>
         <div className='flex flex-col justify-between items-center'>
         <div className='flex justify-start w-full'>

@@ -9,7 +9,7 @@ const SignUp = () => {
 
   const {name, setName, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, signupmessage} = useFormContext();
   return (
-    <div className='bg-[url("public/Images/login-signup.jpg")] bg-cover bg-center flex justify-center items-center h-screen'>
+    <div className='bg-[url("https://i.pinimg.com/originals/aa/ed/70/aaed70f28399cd6512f2fca02cb1dd05.jpg")] bg-cover bg-center flex justify-center items-center h-screen'>
     <div className=' h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl' style={{backdropFilter: "blur(50px)"}}>
         <div className='flex flex-col justify-between items-center'>
         <div className='flex justify-start w-full'>

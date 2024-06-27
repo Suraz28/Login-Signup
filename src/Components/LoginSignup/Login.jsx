@@ -6,6 +6,7 @@ import { useFormContext } from './Context';
 
 const LogIn = () => {
 
+  //import then variables and functions from context file
   const {name, setName, email, password, setPassword, ispasswordVisible, Toggle, handleSubmit, handleFields, isChecked, setIsChecked, Data, loginmessage, RevokeLogin} = useFormContext();
 
   const openGoogleSignIn = () => {

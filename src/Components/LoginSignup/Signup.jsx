@@ -7,6 +7,7 @@ import { useFormContext } from './Context';
 
 const SignUp = () => {
 
+    //import then variables and functions from context file
   const {name, setName, password, email, setEmail, setPassword, ispasswordVisible, Toggle, handleFields, isChecked, setIsChecked, handleSignUp, NewAccount, signupmessage} = useFormContext();
   return (
     <div className='bg-[url("https://i.pinimg.com/originals/aa/ed/70/aaed70f28399cd6512f2fca02cb1dd05.jpg")] bg-cover bg-center flex justify-center items-center h-screen'>

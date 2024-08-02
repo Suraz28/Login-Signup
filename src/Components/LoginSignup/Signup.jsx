@@ -23,7 +23,7 @@ const SignUp = () => {
     signupmessage,
   } = useFormContext();
   return (
-    <div className="bg-fuchsia-300 flex justify-center items-center h-screen">
+    <div className="bg-orange-200 flex justify-center items-center h-screen">
       <div
         className=" h-auto w-80 p-8 rounded-md border border-solid border-opacity-10 shadow-xl"
         style={{ backdropFilter: "blur(50px)" }}
